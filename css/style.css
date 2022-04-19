@@ -60,7 +60,7 @@ body {
   }
 }
 .faq__image .illust {
-  content: url("/images/illustration-woman-online-mobile.svg");
+  content: url("../images/illustration-woman-online-mobile.svg");
   z-index: 2;
   position: absolute;
   top: -105px;
@@ -68,21 +68,21 @@ body {
 }
 @media only screen and (min-width: 1160px) {
   .faq__image .illust {
-    content: url("/images/illustration-woman-online-desktop.svg");
+    content: url("../images/illustration-woman-online-desktop.svg");
     top: 8rem;
     left: -8rem;
     clip-path: inset(0% 0% 0% 17%);
   }
 }
 .faq__image .shadow {
-  content: url("/images/bg-pattern-mobile.svg");
+  content: url("../images/bg-pattern-mobile.svg");
   position: absolute;
   top: 2px;
   left: 45px;
 }
 @media only screen and (min-width: 1160px) {
   .faq__image .shadow {
-    content: url("/images/bg-pattern-desktop.svg");
+    content: url("../images/bg-pattern-desktop.svg");
     top: -29rem;
     left: -58rem;
     clip-path: inset(30.53% 0% 16.44% 60.17%);
@@ -94,7 +94,7 @@ body {
 @media only screen and (min-width: 1160px) {
   .faq__image .box {
     display: block;
-    content: url("/images/illustration-box-desktop.svg");
+    content: url("../images/illustration-box-desktop.svg");
     position: absolute;
     top: 21rem;
     left: -9rem;
@@ -142,7 +142,7 @@ body {
   color: var(--soft-red);
 }
 .faq .accordion__question:after {
-  content: url(/images/icon-arrow-down.svg);
+  content: url(../images/icon-arrow-down.svg);
   font-size: 22px;
   font-weight: bold;
   position: absolute;
@@ -153,7 +153,7 @@ body {
   font-weight: 700;
 }
 .faq .accordion .active:after {
-  content: url(/images/icon-arrow-down.svg);
+  content: url(../images/icon-arrow-down.svg);
   transform: rotate(180deg);
   right: 0px;
   top: 16px;
