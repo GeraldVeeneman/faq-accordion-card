@@ -115,8 +115,10 @@
             document.querySelector(".box").style.left = "-9rem";
 
             // and then to the left
-            setTimeout(document.querySelector(".box").style.left = "-13rem", 3000);
-            //document.querySelector(".box").style.left = "-13rem";
+            setTimeout(function () {
+              document.querySelector(".box").style.left = "-13rem";
+            }, 500);
+
             
           }
 

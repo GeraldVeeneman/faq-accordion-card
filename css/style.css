@@ -99,6 +99,7 @@ body {
     top: 21rem;
     left: -9rem;
     z-index: 3;
+    transition: all ease-in-out 0.2s;
   }
 }
 .faq__title {
