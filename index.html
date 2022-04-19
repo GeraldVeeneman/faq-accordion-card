@@ -1,40 +1,138 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
 
-  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  
-  <title>Frontend Mentor | FAQ Accordion Card</title>
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <link rel="stylesheet" href="css/style.css" />
 
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
-</head>
-<body>
-  How many team members can I invite?
-  You can invite up to 2 additional users on the Free plan. There is no limit on 
-  team members for the Premium plan.
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&family=Space+Mono&display=swap"
+      rel="stylesheet"
+    />
 
-  What is the maximum file upload size?
-  No more than 2GB. All files in your account must fit your allotted storage space.
+    <title>Frontend Mentor | FAQ Accordion Card</title>
+  </head>
+  <body>
+    <article class="faq">
+      <div class="faq__image">
+        <img class="illust" alt="illustration woman online">
+        <img class="shadow" alt="shadow">
+        <img class="box" alt="box">
+      </div>
+      
+      <h1 class="faq__title">FAQ</h1>
 
-  How do I reset my password?
-  Click “Forgot password” from the login page or “Change password” from your profile page.
-  A reset link will be emailed to you.
+      <div class="accordion">
+        <button class="accordion__question">
+          How many team members can I invite?
+        </button>
+        <div class="accordion__answer">
+          <p>
+            You can invite up to 2 additional users on the Free plan. There is
+            no limit on team members for the Premium plan.
+          </p>
+        </div>
 
-  Can I cancel my subscription?
-  Yes! Send us a message and we’ll process your request no questions asked.
+        <button class="accordion__question">
+          What is the maximum file upload size?
+        </button>
+        <div class="accordion__answer">
+          <p>
+            No more than 2GB. All files in your account must fit your allotted
+            storage space.
+          </p>
+        </div>
 
-  Do you provide additional support?
-  Chat and email support is available 24/7. Phone lines are open during normal business hours.
+        <button class="accordion__question">How do I reset my password?</button>
+        <div class="accordion__answer">
+          <p>
+            Click “Forgot password” from the login page or “Change password”
+            from your profile page. A reset link will be emailed to you.
+          </p>
+        </div>
 
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
-  </div>
-</body>
+        <button class="accordion__question">
+          Can I cancel my subscription?
+        </button>
+        <div class="accordion__answer">
+          <p>
+            Yes! Send us a message and we’ll process your request no questions
+            asked.
+          </p>
+        </div>
+
+        <button class="accordion__question">
+          Do you provide additional support?
+        </button>
+        <div class="accordion__answer">
+          <p>
+            Chat and email support is available 24/7. Phone lines are open
+            during normal business hours.
+          </p>
+        </div>
+      </div>
+    </article>
+
+    <script>
+      const acc = document.getElementsByClassName("accordion__question");
+
+      for (let i = 0; i < acc.length; i++) {
+        acc[i].addEventListener("click", function () {
+
+          // If clicked twice in a row on one accordion          
+          if (this.classList.contains("active")) {
+
+            this.classList.remove("active");
+
+            // Move box back to it original position
+            document.querySelector(".box").style.left = "-9rem";
+
+          } else {
+            
+            // find if one accordion is already active
+            const activeAcc = document.querySelector(".active");
+
+            // if one accordion is active then remove its active class
+            if (activeAcc !== null) {
+              activeAcc.classList.remove("active");
+            }
+
+            // Toggle active state of current clicked accordion
+            this.classList.toggle("active");
+
+            // Move box back to its original position
+            document.querySelector(".box").style.left = "-9rem";
+
+            // and then to the left
+            setTimeout(document.querySelector(".box").style.left = "-13rem", 3000);
+            //document.querySelector(".box").style.left = "-13rem";
+            
+          }
+
+          // Close all other accordions
+          for (let j = 0; j < acc.length; j++) {
+            if (j !== i) acc[j].nextElementSibling.style.maxHeight = null;
+          }
+
+          const answer = this.nextElementSibling;
+          if (answer.style.maxHeight) {
+            answer.style.maxHeight = null;
+          } else {
+            answer.style.maxHeight = answer.scrollHeight + "px";
+          }
+        });
+      }
+    </script>
+  </body>
 </html>

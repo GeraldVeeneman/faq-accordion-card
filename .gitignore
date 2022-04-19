@@ -16,4 +16,5 @@
 
 .prettierignore
 
+*.drawio
 node_modules
